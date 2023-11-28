@@ -10,17 +10,18 @@ const BlogDetails = () => {
    const handleClick = () =>{
     fetch('http://localhost:8000/blogs/' + blog.id, {
         method: 'DELETE' 
-    }). then (() =>{
+    }).then(() => {
         history.push('/')
     })
    }
+   
     return (  
         <div className="blog details">
           { isLoading && <div>Loading...</div> }
           { error && <div>{ error }</div> }
           { blog && (
             <article>
-            <h2>{ blog.article }</h2>
+            <h2>{ blog.title }</h2>
              <p>Written by { blog.author }</p>
              <div>{ blog.body }</div>
              <button onClick={handleClick}>delete</button>
@@ -31,3 +32,6 @@ const BlogDetails = () => {
 }
  
 export default BlogDetails;
+
+
+//Command to start the json server npx json-server --watch data/db.json --port 8000

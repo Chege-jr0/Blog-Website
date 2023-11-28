@@ -33,7 +33,7 @@ const useFetch = (url) => {
         })
 
         }, 1000);
-     return () => console.log('cleanup');
+     return () => abortCont.abort();
 
     },  [url])
 
